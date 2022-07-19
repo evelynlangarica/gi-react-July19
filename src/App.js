@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import React, {Component} from "react";
+import BasicInfo from './components/BasicInfo';
+
+//EASY Challnege CREATE Constructor
+class App extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      person: [{
+        name: "evelyn",
+        number: 6,
+        dateOfBirth: "11/06/1997"
+      }]
+    }
+  }
+
+
+  //HARD CHALLENGE
+
+render() {  
+  return <>{
+    this.state.person.map(person => {
+      console.log(person)
+      return <BasicInfo person={person} key={person.name}/> 
+    })
+    }
+    </>
+   
+}  
 }
 
 export default App;
